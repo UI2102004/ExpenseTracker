@@ -235,6 +235,9 @@ function addTransaction(e) {
     if (name.length > 100) {
       throw new Error("Transaction name is too long (max 100 characters)");
     }
+     if (!/^[a-zA-Z\s]*$/.test(name)) {
+      throw new Error("Transaction name can only contain letters and spaces");
+    }
     if (!amount || isNaN(amount) || amount <= 0) {
       throw new Error("Please enter a valid positive amount");
     }
